@@ -2,6 +2,7 @@ package org.example;
 
 import java.sql.SQLOutput;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
@@ -31,9 +32,12 @@ public class Main {
                     System.out.println(length); // druckt alle Elemente aus
         });
 
-        fruits.stream()
-                .filter(f -> f.length() > 5)
+        List<String> result = fruits.stream()
+                .filter(f -> f.length() > 5 && f.length() < 10)
                 .map(f -> f.toUpperCase())
-                .forEach(System.out::println);
+                .collect(Collectors.toList());
+
+        System.out.println(fruits);
+        System.out.println(result);
     }
 }
