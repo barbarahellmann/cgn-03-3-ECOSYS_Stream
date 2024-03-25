@@ -14,6 +14,7 @@ public class Main {
             System.out.println(fruit);
         }
 
+
         // Ausgabe als Stream
 
         System.out.println("Stream");
@@ -22,7 +23,6 @@ public class Main {
                     System.out.println(fruit);
         });
 
-
         fruits.stream()
                 .map ((f) -> {
                     return f.length();   // gibt die Länge der Elemente für jedes Element zurück
@@ -30,5 +30,10 @@ public class Main {
                 .forEach(length -> {
                     System.out.println(length); // druckt alle Elemente aus
         });
+
+        fruits.stream()
+                .filter(f -> f.length() > 5)
+                .map(f -> f.toUpperCase())
+                .forEach(System.out::println);
     }
 }
