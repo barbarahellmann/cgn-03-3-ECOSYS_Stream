@@ -1,18 +1,34 @@
 package org.example;
 
+import java.sql.SQLOutput;
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
 
+        // Liste der Elemente
         List<String> fruits = List.of("Apple", "Banana", "Cherry", "Cucumber", "Raspberry", "Strawberry", "Kiwi");
 
         System.out.println("Loop: ");
         for (String fruit : fruits) {
             System.out.println(fruit);
         }
+
+        // Ausgabe als Stream
+
         System.out.println("Stream");
         fruits.stream()
-                .forEach((System.out::println));
+                .forEach((fruit) -> {
+                    System.out.println(fruit);
+        });
+
+
+        fruits.stream()
+                .map ((f) -> {
+                    return f.length();   // gibt die Länge der Elemente für jedes Element zurück
+                })
+                .forEach(length -> {
+                    System.out.println(length); // druckt alle Elemente aus
+        });
     }
 }
